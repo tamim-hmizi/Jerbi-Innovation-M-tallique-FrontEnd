@@ -5,10 +5,13 @@ import Products from "./pages/Products";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
-import Register from "./pages/Register"; 
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+import Commandes from "./pages/Commandes";
+import Categorie from "./pages/Categorie";
+import ProductsAdmin from "./pages/ProductsAdmin";
 import { Provider } from "react-redux";
 import store from "./store";
-import Dashboard from "./pages/Dashboard";
 
 const App = () => {
   return (
@@ -23,8 +26,14 @@ const App = () => {
               <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/signin" element={<SignIn />} />
-              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/register" element={<Register />} />
+
+              {/* Dashboard and nested routes */}
+              <Route path="/dashboard" element={<Dashboard />}>
+                <Route path="commandes" element={<Commandes />} />
+                <Route path="categorie" element={<Categorie />} />
+                <Route path="produits" element={<ProductsAdmin />} />
+              </Route>
             </Routes>
           </div>
         </div>

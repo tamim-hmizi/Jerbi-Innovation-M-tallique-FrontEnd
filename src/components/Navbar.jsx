@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux"; // Import useDispatch
-import { clearUser } from "../store/userSlice"; // Adjust the import path as necessary
+import { useSelector, useDispatch } from "react-redux";
+import { clearUser } from "../store/userSlice";
 import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const user = useSelector((state) => state.user.userInfo);
-  const dispatch = useDispatch(); // Initialize useDispatch
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -29,7 +31,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-gray-900 text-gray-300 shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <Link
@@ -40,7 +42,6 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="hidden md:flex space-x-6">
-          {/* Always display navigation links */}
           {user?.role !== "admin" && (
             <>
               <Link
@@ -70,12 +71,11 @@ const Navbar = () => {
             </>
           )}
 
-          {/* User-specific actions */}
           {user === null ? (
             <Link
               to="/signin"
               onClick={closeMenu}
-              className="px-4 py-4 bg-red-600 text-white font-bold rounded hover:bg-red-700 transition duration-300 flex items-center"
+              className="px-4 py-4 bg-red-600 text-gray-300 font-bold rounded hover:bg-red-700 transition duration-300 flex items-center"
             >
               Se connecter
             </Link>
@@ -89,7 +89,7 @@ const Navbar = () => {
               </button>
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 bg-gray-800 rounded shadow-lg">
-                  {user?.role != "admin" && (
+                  {user?.role !== "admin" && (
                     <Link
                       to="/"
                       onClick={closeMenu}
@@ -99,7 +99,7 @@ const Navbar = () => {
                     </Link>
                   )}
                   <button
-                    onClick={handleLogout} // Call handleLogout on click
+                    onClick={handleLogout}
                     className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-700 transition duration-300"
                   >
                     Se déconnecter
@@ -135,7 +135,6 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute left-0 right-0 bg-gray-800 border-t border-gray-700">
           <div className="flex flex-col">
-            {/* Always display navigation links in mobile view */}
             {user?.role !== "admin" && (
               <>
                 <Link
@@ -169,12 +168,11 @@ const Navbar = () => {
               </>
             )}
 
-            {/* User-specific actions in mobile view */}
             {user === null ? (
               <Link
                 to="/signin"
                 onClick={closeMenu}
-                className="px-4 py-4 bg-red-600 text-white font-bold rounded hover:bg-red-700 transition duration-300 flex items-center"
+                className="px-4 py-4 bg-red-600 text-gray-300 font-bold rounded hover:bg-red-700 transition duration-300 flex items-center"
               >
                 Se connecter
               </Link>
@@ -188,7 +186,7 @@ const Navbar = () => {
                 </button>
                 {dropdownOpen && (
                   <div className="absolute left-0 right-0 mt-2 bg-gray-800 rounded shadow-lg">
-                    {user?.role != "admin" && (
+                    {user?.role !== "admin" && (
                       <Link
                         to="/"
                         onClick={closeMenu}
@@ -198,7 +196,7 @@ const Navbar = () => {
                       </Link>
                     )}
                     <button
-                      onClick={handleLogout} // Call handleLogout on click
+                      onClick={handleLogout}
                       className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-700 transition duration-300"
                     >
                       Se déconnecter
