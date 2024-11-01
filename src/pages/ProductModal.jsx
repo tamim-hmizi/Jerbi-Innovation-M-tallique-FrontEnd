@@ -13,7 +13,7 @@ const ProductModal = ({
   const [prix, setPrix] = useState("");
   const [categorie, setCategorie] = useState("");
   const [image, setImage] = useState("");
-  console.log(initialData);
+  
   useEffect(() => {
     if (isOpen) {
       if (initialData) {
@@ -22,7 +22,7 @@ const ProductModal = ({
         setPrix(initialData.prix);
         setCategorie(
           categories.find((cat) => cat._id === initialData.categorie)
-        ); // Use _id for categorie
+        );
         setImage(initialData.image);
       } else {
         setNom("");
@@ -38,7 +38,7 @@ const ProductModal = ({
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend = () => {
-      setImage(reader.result); // Convert image to base64 string
+      setImage(reader.result); 
     };
     if (file) {
       reader.readAsDataURL(file);
@@ -47,7 +47,7 @@ const ProductModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ image, nom, description, categorie, prix }); // Send required fields
+    onSubmit({ image, nom, description, categorie, prix });
   };
 
   return (

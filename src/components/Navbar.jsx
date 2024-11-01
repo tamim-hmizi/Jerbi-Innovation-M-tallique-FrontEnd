@@ -90,13 +90,22 @@ const Navbar = () => {
               {dropdownOpen && (
                 <div className="absolute right-0 mt-2 bg-gray-800 rounded shadow-lg">
                   {user?.role !== "admin" && (
-                    <Link
-                      to="/"
-                      onClick={closeMenu}
-                      className="block px-4 py-2 text-sm hover:bg-gray-700 transition duration-300"
-                    >
-                      Mes Commandes
-                    </Link>
+                    <>
+                      <Link
+                        to="/panier"
+                        onClick={closeMenu}
+                        className="block px-4 py-2 text-sm hover:bg-gray-700 transition duration-300"
+                      >
+                        Ma Panier
+                      </Link>
+                      <Link
+                        to="/commandes"
+                        onClick={closeMenu}
+                        className="block px-4 py-2 text-sm hover:bg-gray-700 transition duration-300"
+                      >
+                        Mes Commandes
+                      </Link>
+                    </>
                   )}
                   <button
                     onClick={handleLogout}
@@ -187,13 +196,22 @@ const Navbar = () => {
                 {dropdownOpen && (
                   <div className="absolute left-0 right-0 mt-2 bg-gray-800 rounded shadow-lg">
                     {user?.role !== "admin" && (
-                      <Link
-                        to="/"
-                        onClick={closeMenu}
-                        className="block px-4 py-2 text-sm hover:bg-gray-700 transition duration-300"
-                      >
-                        Mes Commandes
-                      </Link>
+                      <>
+                        <Link
+                          to="/panier"
+                          onClick={closeMenu}
+                          className="block px-4 py-2 text-sm hover:bg-gray-700 transition duration-300"
+                        >
+                          Ma Panier
+                        </Link>
+                        <Link
+                          to="/commandes"
+                          onClick={closeMenu}
+                          className="block px-4 py-2 text-sm hover:bg-gray-700 transition duration-300"
+                        >
+                          Mes Commandes
+                        </Link>
+                      </>
                     )}
                     <button
                       onClick={handleLogout}

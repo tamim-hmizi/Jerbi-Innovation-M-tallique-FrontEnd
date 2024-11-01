@@ -134,7 +134,7 @@ function Products() {
                       )?.nom
                     }
                   </p>
-                  <p className="text-sm">Prix: {product.prix} €</p>
+                  <p className="text-sm">Prix: {product.prix} DT</p>
                 </div>
               </div>
               <div className="flex flex-col space-y-2 sm:flex-row sm:space-x-2 sm:space-y-0">

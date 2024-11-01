@@ -7,12 +7,13 @@ import Contact from "./pages/Contact";
 import SignIn from "./pages/SignIn";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import Commandes from "./pages/Commandes";
+import CommandesAdmin from "./pages/CommandesAdmin";
 import Categorie from "./pages/Categorie";
 import ProductsAdmin from "./pages/ProductsAdmin";
 import { Provider } from "react-redux";
 import store from "./store";
-
+import Panier from "./pages/Panier";
+import Commandes from "./pages/Commandes";
 const App = () => {
   return (
     <Provider store={store}>
@@ -27,10 +28,11 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/register" element={<Register />} />
-
+              <Route path="/panier" element={<Panier />} />
+              <Route path="/commandes" element={<Commandes />} />
               {/* Dashboard and nested routes */}
               <Route path="/dashboard" element={<Dashboard />}>
-                <Route path="commandes" element={<Commandes />} />
+                <Route path="commandes" element={<CommandesAdmin />} />
                 <Route path="categorie" element={<Categorie />} />
                 <Route path="produits" element={<ProductsAdmin />} />
               </Route>
